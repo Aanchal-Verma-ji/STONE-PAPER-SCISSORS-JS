@@ -13,30 +13,33 @@ options.forEach((option) => {
       computer.classList.remove("shakeComputer");
       player.classList.remove("shakePlayer");
 
-      player.src = "assets/" + option.innerHTML.toLowerCase()+"-player.jpg";
+      const playerChoice=option.innerHTML.toLowerCase();
+      player.src = `assets/${playerChoice}-player.jpg`;
 
-      const choice = ["STONE", "PAPER", "SCISSORS"];
-      let arrayNo = Math.floor(Math.random() * 3);
-      let computerChoice = choice[arrayNo];
-      computer.src = "assets/" + computerChoice.toLowerCase()+"-computer.jpg";
+      const choice = ["stone", "paper", "scissors"];
+
+      let computerChoice = choice[Math.floor(Math.random() * 3)];
+      
+
+      computer.src = `assets/${computerChoice}-computer.jpg`;
 
       let cPoints = parseInt(computerPoints.innerHTML);
       let pPoints = parseInt(playerPoints.innerHTML);
 
-      if (option.innerHTML === "STONE") {
-        if (computerChoice === "PAPER")
+      if (playerChoice === "stone") {
+        if (computerChoice === "paper")
           computerPoints.innerHTML = cPoints + 1;
-        else if (computerChoice === "SCISSORS")
+        else if (computerChoice === "scissors")
           playerPoints.innerHTML = pPoints + 1;
-      } else if (option.innerHTML === "PAPER") {
-        if (computerChoice === "SCISSORS")
+      } else if (playerChoice === "paper") {
+        if (computerChoice === "scissors")
           computerPoints.innerHTML = cPoints + 1;
-        else if (computerChoice === "STONE")
+        else if (computerChoice === "stone")
           playerPoints.innerHTML = pPoints + 1;
       } else {
-        if (computerChoice === "STONE")
+        if (computerChoice === "stone")
           computerPoints.innerHTML = cPoints + 1;
-        else if (computerChoice === "PAPER")
+        else if (computerChoice === "paper")
           playerPoints.innerHTML = pPoints + 1;
       }
     }, 900);
