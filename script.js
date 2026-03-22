@@ -3,7 +3,7 @@ const player = document.querySelector(".player img");
 const computerPoints = document.querySelector(".computerPoints");
 const playerPoints = document.querySelector(".playerPoints");
 const options = document.querySelectorAll(".options button");
-
+ 
 options.forEach((option) => {
   option.addEventListener("click", () => {
     computer.classList.add("shakeComputer");
@@ -14,6 +14,7 @@ options.forEach((option) => {
       player.classList.remove("shakePlayer");
 
       const playerChoice=option.innerHTML.toLowerCase();
+      
       player.src = `assets/${playerChoice}-player.jpg`;
 
       const choice = ["stone", "paper", "scissors"];
